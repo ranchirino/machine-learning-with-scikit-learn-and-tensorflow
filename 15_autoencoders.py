@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import os
 import sys
 
+# matplotlib.rcParams['backend'] = 'Qt4Agg'
+# matplotlib.rcParams['backend.qt5'] = 'PyQt4'
+
 # to make this notebook's output stable across runs
 def reset_graph(seed=42):
     tf.reset_default_graph()
@@ -94,7 +97,7 @@ from mpl_toolkits.mplot3d import Axes3D
 fig = plt.figure(figsize=(9,4))
 ax1 = fig.add_subplot(121, projection='3d')
 ax1.scatter(X_test[:,0], X_test[:,1], X_test[:,2])
-plt.show()
+# plt.show()
 
 ax2 = fig.add_subplot(122)
 ax2.plot(codings_val[:,0], codings_val[:, 1], "b.")
