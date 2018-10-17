@@ -90,24 +90,16 @@ with tf.Session() as sess:
 
 
 from mpl_toolkits.mplot3d import Axes3D
-# fig = plt.figure()
-# ax = fig.add_subplot(111, projection='3d')
-# ax.scatter(X_test[:, 0], X_test[:, 1])
-# plt.show()
 
-# plt.plot(codings_val[:,0], codings_val[:, 1], "b.")
-# plt.xlabel("$z_1$", fontsize=18)
-# plt.ylabel("$z_2$", fontsize=18, rotation=0)
-# plt.show()
-
-
-# plt.show()
-
-plt.scatter(X_test[:,0], X_test[:,1])
+fig = plt.figure(figsize=(9,4))
+ax1 = fig.add_subplot(121, projection='3d')
+ax1.scatter(X_test[:,0], X_test[:,1], X_test[:,2])
 plt.show()
 
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-ax.scatter(X_test[:,:5], X_test[:,:5], X_test[:,:5])
+ax2 = fig.add_subplot(122)
+ax2.plot(codings_val[:,0], codings_val[:, 1], "b.")
+plt.xlabel("$z_1$", fontsize=18)
+plt.ylabel("$z_2$", fontsize=18, rotation=0)
 plt.show()
+
 
