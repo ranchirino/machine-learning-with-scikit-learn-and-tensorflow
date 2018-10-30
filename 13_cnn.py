@@ -37,8 +37,8 @@ image_grayscale = image.mean(axis=2).astype(np.float32)
 images = image_grayscale.reshape(1, height, width, 1)
 
 fmap = np.zeros(shape=(7, 7, 1, 2), dtype=np.float32)
-fmap[:, 3, 0, 0] = 1
-fmap[3, :, 0, 1] = 1
+fmap[:, 3, 0, 0] = 1   # 1s en la columna central del primer filtro (kernel)
+fmap[3, :, 0, 1] = 1   # 1s en la fila central del segundo filtro (kernel)
 plot_image(fmap[:, :, 0, 0])
 plt.show()
 plot_image(fmap[:, :, 0, 1])
@@ -48,7 +48,7 @@ plt.show()
 reset_graph()
 
 X = tf.placeholder(tf.float32, shape=(None, height, width, 1))
-feature_maps = tf.constant(fmap)
+feature_maps = tf.constant(fmap)  # filters (kernels)
 convolution = tf.nn.conv2d(X, feature_maps, strides=[1,1,1,1], padding="SAME")
 
 with tf.Session() as sess:
